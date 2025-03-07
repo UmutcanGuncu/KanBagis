@@ -1,0 +1,223 @@
+{
+  "format": 1,
+  "restore": {
+    "/Users/umutcanguncu/RiderProjects/KanBagis/Infastructure/KanBagis.Infastructure/KanBagis.Infastructure.csproj": {}
+  },
+  "projects": {
+    "/Users/umutcanguncu/RiderProjects/KanBagis/Core/KanBagis.Application/KanBagis.Application.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/umutcanguncu/RiderProjects/KanBagis/Core/KanBagis.Application/KanBagis.Application.csproj",
+        "projectName": "KanBagis.Application",
+        "projectPath": "/Users/umutcanguncu/RiderProjects/KanBagis/Core/KanBagis.Application/KanBagis.Application.csproj",
+        "packagesPath": "/Users/umutcanguncu/.nuget/packages/",
+        "outputPath": "/Users/umutcanguncu/RiderProjects/KanBagis/Core/KanBagis.Application/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/umutcanguncu/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net9.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net9.0": {
+            "targetAlias": "net9.0",
+            "projectReferences": {
+              "/Users/umutcanguncu/RiderProjects/KanBagis/Core/KanBagis.Domain/KanBagis.Domain.csproj": {
+                "projectPath": "/Users/umutcanguncu/RiderProjects/KanBagis/Core/KanBagis.Domain/KanBagis.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.200"
+      },
+      "frameworks": {
+        "net9.0": {
+          "targetAlias": "net9.0",
+          "dependencies": {
+            "MediatR": {
+              "target": "Package",
+              "version": "[12.4.1, )"
+            },
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[9.0.2, )"
+            },
+            "Microsoft.AspNetCore.Identity.UI": {
+              "target": "Package",
+              "version": "[9.0.2, )"
+            },
+            "Microsoft.Extensions.Identity.Core": {
+              "target": "Package",
+              "version": "[9.0.2, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.200/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/umutcanguncu/RiderProjects/KanBagis/Core/KanBagis.Domain/KanBagis.Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/umutcanguncu/RiderProjects/KanBagis/Core/KanBagis.Domain/KanBagis.Domain.csproj",
+        "projectName": "KanBagis.Domain",
+        "projectPath": "/Users/umutcanguncu/RiderProjects/KanBagis/Core/KanBagis.Domain/KanBagis.Domain.csproj",
+        "packagesPath": "/Users/umutcanguncu/.nuget/packages/",
+        "outputPath": "/Users/umutcanguncu/RiderProjects/KanBagis/Core/KanBagis.Domain/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/umutcanguncu/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net9.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net9.0": {
+            "targetAlias": "net9.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.200"
+      },
+      "frameworks": {
+        "net9.0": {
+          "targetAlias": "net9.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[9.0.2, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.200/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/umutcanguncu/RiderProjects/KanBagis/Infastructure/KanBagis.Infastructure/KanBagis.Infastructure.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/umutcanguncu/RiderProjects/KanBagis/Infastructure/KanBagis.Infastructure/KanBagis.Infastructure.csproj",
+        "projectName": "KanBagis.Infastructure",
+        "projectPath": "/Users/umutcanguncu/RiderProjects/KanBagis/Infastructure/KanBagis.Infastructure/KanBagis.Infastructure.csproj",
+        "packagesPath": "/Users/umutcanguncu/.nuget/packages/",
+        "outputPath": "/Users/umutcanguncu/RiderProjects/KanBagis/Infastructure/KanBagis.Infastructure/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/umutcanguncu/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net9.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net9.0": {
+            "targetAlias": "net9.0",
+            "projectReferences": {
+              "/Users/umutcanguncu/RiderProjects/KanBagis/Core/KanBagis.Application/KanBagis.Application.csproj": {
+                "projectPath": "/Users/umutcanguncu/RiderProjects/KanBagis/Core/KanBagis.Application/KanBagis.Application.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.200"
+      },
+      "frameworks": {
+        "net9.0": {
+          "targetAlias": "net9.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[9.0.2, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.200/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

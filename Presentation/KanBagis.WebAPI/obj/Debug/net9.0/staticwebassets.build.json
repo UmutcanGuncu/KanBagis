@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "SzIOMV6gbcBwfw+sDSuNL+q0OwHAPzw0cKf3Q6UGafs=",
+  "Source": "KanBagis.WebAPI",
+  "BasePath": "_content/KanBagis.WebAPI",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}

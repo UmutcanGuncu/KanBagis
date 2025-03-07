@@ -1,0 +1,15 @@
+/Users/umutcanguncu/RiderProjects/KanBagis/Core/KanBagis.Application/bin/Debug/net9.0/KanBagis.Application.deps.json
+/Users/umutcanguncu/RiderProjects/KanBagis/Core/KanBagis.Application/bin/Debug/net9.0/KanBagis.Application.dll
+/Users/umutcanguncu/RiderProjects/KanBagis/Core/KanBagis.Application/bin/Debug/net9.0/KanBagis.Application.pdb
+/Users/umutcanguncu/RiderProjects/KanBagis/Core/KanBagis.Application/bin/Debug/net9.0/KanBagis.Domain.dll
+/Users/umutcanguncu/RiderProjects/KanBagis/Core/KanBagis.Application/bin/Debug/net9.0/KanBagis.Domain.pdb
+/Users/umutcanguncu/RiderProjects/KanBagis/Core/KanBagis.Application/obj/Debug/net9.0/KanBagis.Application.csproj.AssemblyReference.cache
+/Users/umutcanguncu/RiderProjects/KanBagis/Core/KanBagis.Application/obj/Debug/net9.0/KanBagis.Application.GeneratedMSBuildEditorConfig.editorconfig
+/Users/umutcanguncu/RiderProjects/KanBagis/Core/KanBagis.Application/obj/Debug/net9.0/KanBagis.Application.AssemblyInfoInputs.cache
+/Users/umutcanguncu/RiderProjects/KanBagis/Core/KanBagis.Application/obj/Debug/net9.0/KanBagis.Application.AssemblyInfo.cs
+/Users/umutcanguncu/RiderProjects/KanBagis/Core/KanBagis.Application/obj/Debug/net9.0/KanBagis.Application.csproj.CoreCompileInputs.cache
+/Users/umutcanguncu/RiderProjects/KanBagis/Core/KanBagis.Application/obj/Debug/net9.0/KanBagis.31BE4058.Up2Date
+/Users/umutcanguncu/RiderProjects/KanBagis/Core/KanBagis.Application/obj/Debug/net9.0/KanBagis.Application.dll
+/Users/umutcanguncu/RiderProjects/KanBagis/Core/KanBagis.Application/obj/Debug/net9.0/refint/KanBagis.Application.dll
+/Users/umutcanguncu/RiderProjects/KanBagis/Core/KanBagis.Application/obj/Debug/net9.0/KanBagis.Application.pdb
+/Users/umutcanguncu/RiderProjects/KanBagis/Core/KanBagis.Application/obj/Debug/net9.0/ref/KanBagis.Application.dll

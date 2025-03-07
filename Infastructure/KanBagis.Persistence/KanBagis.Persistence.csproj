@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net9.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="9.0.2" />
+      <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="9.0.2" />
+      <PackageReference Include="Microsoft.Extensions.Identity.Core" Version="9.0.2" />
+      <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="9.0.2" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\Core\KanBagis.Application\KanBagis.Application.csproj" />
+      <ProjectReference Include="..\..\Core\KanBagis.Domain\KanBagis.Domain.csproj" />
+    </ItemGroup>
+
+</Project>

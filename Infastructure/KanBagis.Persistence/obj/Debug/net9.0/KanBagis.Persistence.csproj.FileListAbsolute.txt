@@ -1,0 +1,17 @@
+/Users/umutcanguncu/RiderProjects/KanBagis/Infastructure/KanBagis.Persistence/bin/Debug/net9.0/KanBagis.Persistence.deps.json
+/Users/umutcanguncu/RiderProjects/KanBagis/Infastructure/KanBagis.Persistence/bin/Debug/net9.0/KanBagis.Persistence.dll
+/Users/umutcanguncu/RiderProjects/KanBagis/Infastructure/KanBagis.Persistence/bin/Debug/net9.0/KanBagis.Persistence.pdb
+/Users/umutcanguncu/RiderProjects/KanBagis/Infastructure/KanBagis.Persistence/bin/Debug/net9.0/KanBagis.Domain.dll
+/Users/umutcanguncu/RiderProjects/KanBagis/Infastructure/KanBagis.Persistence/bin/Debug/net9.0/KanBagis.Domain.pdb
+/Users/umutcanguncu/RiderProjects/KanBagis/Infastructure/KanBagis.Persistence/obj/Debug/net9.0/KanBagis.Persistence.csproj.AssemblyReference.cache
+/Users/umutcanguncu/RiderProjects/KanBagis/Infastructure/KanBagis.Persistence/obj/Debug/net9.0/KanBagis.Persistence.GeneratedMSBuildEditorConfig.editorconfig
+/Users/umutcanguncu/RiderProjects/KanBagis/Infastructure/KanBagis.Persistence/obj/Debug/net9.0/KanBagis.Persistence.AssemblyInfoInputs.cache
+/Users/umutcanguncu/RiderProjects/KanBagis/Infastructure/KanBagis.Persistence/obj/Debug/net9.0/KanBagis.Persistence.AssemblyInfo.cs
+/Users/umutcanguncu/RiderProjects/KanBagis/Infastructure/KanBagis.Persistence/obj/Debug/net9.0/KanBagis.Persistence.csproj.CoreCompileInputs.cache
+/Users/umutcanguncu/RiderProjects/KanBagis/Infastructure/KanBagis.Persistence/obj/Debug/net9.0/KanBagis.CA113652.Up2Date
+/Users/umutcanguncu/RiderProjects/KanBagis/Infastructure/KanBagis.Persistence/obj/Debug/net9.0/KanBagis.Persistence.dll
+/Users/umutcanguncu/RiderProjects/KanBagis/Infastructure/KanBagis.Persistence/obj/Debug/net9.0/refint/KanBagis.Persistence.dll
+/Users/umutcanguncu/RiderProjects/KanBagis/Infastructure/KanBagis.Persistence/obj/Debug/net9.0/KanBagis.Persistence.pdb
+/Users/umutcanguncu/RiderProjects/KanBagis/Infastructure/KanBagis.Persistence/obj/Debug/net9.0/ref/KanBagis.Persistence.dll
+/Users/umutcanguncu/RiderProjects/KanBagis/Infastructure/KanBagis.Persistence/bin/Debug/net9.0/KanBagis.Application.dll
+/Users/umutcanguncu/RiderProjects/KanBagis/Infastructure/KanBagis.Persistence/bin/Debug/net9.0/KanBagis.Application.pdb

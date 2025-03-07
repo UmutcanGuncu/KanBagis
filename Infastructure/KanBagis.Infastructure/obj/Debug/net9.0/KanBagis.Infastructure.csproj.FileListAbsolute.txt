@@ -1,0 +1,17 @@
+/Users/umutcanguncu/RiderProjects/KanBagis/Infastructure/KanBagis.Infastructure/bin/Debug/net9.0/KanBagis.Infastructure.deps.json
+/Users/umutcanguncu/RiderProjects/KanBagis/Infastructure/KanBagis.Infastructure/bin/Debug/net9.0/KanBagis.Infastructure.dll
+/Users/umutcanguncu/RiderProjects/KanBagis/Infastructure/KanBagis.Infastructure/bin/Debug/net9.0/KanBagis.Infastructure.pdb
+/Users/umutcanguncu/RiderProjects/KanBagis/Infastructure/KanBagis.Infastructure/bin/Debug/net9.0/KanBagis.Application.dll
+/Users/umutcanguncu/RiderProjects/KanBagis/Infastructure/KanBagis.Infastructure/bin/Debug/net9.0/KanBagis.Domain.dll
+/Users/umutcanguncu/RiderProjects/KanBagis/Infastructure/KanBagis.Infastructure/bin/Debug/net9.0/KanBagis.Application.pdb
+/Users/umutcanguncu/RiderProjects/KanBagis/Infastructure/KanBagis.Infastructure/bin/Debug/net9.0/KanBagis.Domain.pdb
+/Users/umutcanguncu/RiderProjects/KanBagis/Infastructure/KanBagis.Infastructure/obj/Debug/net9.0/KanBagis.Infastructure.csproj.AssemblyReference.cache
+/Users/umutcanguncu/RiderProjects/KanBagis/Infastructure/KanBagis.Infastructure/obj/Debug/net9.0/KanBagis.Infastructure.GeneratedMSBuildEditorConfig.editorconfig
+/Users/umutcanguncu/RiderProjects/KanBagis/Infastructure/KanBagis.Infastructure/obj/Debug/net9.0/KanBagis.Infastructure.AssemblyInfoInputs.cache
+/Users/umutcanguncu/RiderProjects/KanBagis/Infastructure/KanBagis.Infastructure/obj/Debug/net9.0/KanBagis.Infastructure.AssemblyInfo.cs
+/Users/umutcanguncu/RiderProjects/KanBagis/Infastructure/KanBagis.Infastructure/obj/Debug/net9.0/KanBagis.Infastructure.csproj.CoreCompileInputs.cache
+/Users/umutcanguncu/RiderProjects/KanBagis/Infastructure/KanBagis.Infastructure/obj/Debug/net9.0/KanBagis.D8824113.Up2Date
+/Users/umutcanguncu/RiderProjects/KanBagis/Infastructure/KanBagis.Infastructure/obj/Debug/net9.0/KanBagis.Infastructure.dll
+/Users/umutcanguncu/RiderProjects/KanBagis/Infastructure/KanBagis.Infastructure/obj/Debug/net9.0/refint/KanBagis.Infastructure.dll
+/Users/umutcanguncu/RiderProjects/KanBagis/Infastructure/KanBagis.Infastructure/obj/Debug/net9.0/KanBagis.Infastructure.pdb
+/Users/umutcanguncu/RiderProjects/KanBagis/Infastructure/KanBagis.Infastructure/obj/Debug/net9.0/ref/KanBagis.Infastructure.dll
