@@ -10,6 +10,7 @@
 /Users/umutcanguncu/RiderProjects/KanBagis/Infastructure/KanBagis.Infastructure/obj/Debug/net9.0/KanBagis.Infastructure.AssemblyInfoInputs.cache
 /Users/umutcanguncu/RiderProjects/KanBagis/Infastructure/KanBagis.Infastructure/obj/Debug/net9.0/KanBagis.Infastructure.AssemblyInfo.cs
 /Users/umutcanguncu/RiderProjects/KanBagis/Infastructure/KanBagis.Infastructure/obj/Debug/net9.0/KanBagis.Infastructure.csproj.CoreCompileInputs.cache
+/Users/umutcanguncu/RiderProjects/KanBagis/Infastructure/KanBagis.Infastructure/obj/Debug/net9.0/KanBagis.Infastructure.sourcelink.json
 /Users/umutcanguncu/RiderProjects/KanBagis/Infastructure/KanBagis.Infastructure/obj/Debug/net9.0/KanBagis.D8824113.Up2Date
 /Users/umutcanguncu/RiderProjects/KanBagis/Infastructure/KanBagis.Infastructure/obj/Debug/net9.0/KanBagis.Infastructure.dll
 /Users/umutcanguncu/RiderProjects/KanBagis/Infastructure/KanBagis.Infastructure/obj/Debug/net9.0/refint/KanBagis.Infastructure.dll

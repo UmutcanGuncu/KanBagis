@@ -2,6 +2,6 @@ namespace KanBagis.Application.Abstactions.Token;
 
 public interface ITokenHandler
 {
-    DTOs.Token CreateAccessToken(); 
+    Task<DTOs.Token> CreateAccessToken(string userId); 
     string CreateRefreshToken();
 }

@@ -56,7 +56,7 @@ public class AuthController : ControllerBase
     }
 
     [HttpPost("[action]")]
-    [Authorize(AuthenticationSchemes = "Admin")]
+    [Authorize(Roles = "User")]
     public IActionResult Deneme()
     {
         return Ok("Girdi");

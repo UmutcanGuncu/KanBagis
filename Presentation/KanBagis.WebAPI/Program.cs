@@ -14,6 +14,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi.Models;
 using TokenHandler = KanBagis.Infastructure.Services.Token.TokenHandler;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -22,7 +23,33 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 builder.Services.AddOpenApi();
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen(c =>
+{
+    c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+    {
+        In = ParameterLocation.Header,
+        Name = "Authorization",
+        Type = SecuritySchemeType.ApiKey,
+        Scheme = "bearer",
+        BearerFormat = "JWT",
+        Description = "Enter 'Bearer' followed by a space and then the JWT token"
+    });
+    c.AddSecurityRequirement(new OpenApiSecurityRequirement
+    {
+        {
+            new OpenApiSecurityScheme
+            {
+                Reference = new OpenApiReference
+                {
+                    Type = ReferenceType.SecurityScheme,
+                    Id = "Bearer"
+                }
+            },
+            new string[] {}
+        }
+    });
+});
+
 builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(
     typeof(Program).Assembly,
     typeof(CreateUserCommandHandler).Assembly ,
@@ -34,6 +61,7 @@ builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(
 builder.Services.AddScoped<ITokenHandler, TokenHandler>();
 builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<IRoleService, RoleService>();
 builder.Services.AddDbContext<KanBagisDbContext>(cfg =>
 {
     cfg.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"));
@@ -46,8 +74,6 @@ builder.Services.AddCors(options =>
             .AllowAnyMethod()
     )); // Kimlik bilgilerini destekler
 
-builder.Services.AddAuthentication();
-builder.Services.AddAuthorization();
 builder.Services.AddIdentity<AppUser, AppRole>(opt =>
 {
     opt.User.RequireUniqueEmail = true;
@@ -57,8 +83,14 @@ builder.Services.AddIdentity<AppUser, AppRole>(opt =>
     .AddEntityFrameworkStores<KanBagisDbContext>()
     .AddErrorDescriber<LocalizationIdentityErrorDescriber>()
     .AddDefaultTokenProviders();
-builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-    .AddJwtBearer("Admin",opt =>
+//builder.Services.AddAuthorization();
+builder.Services.AddAuthentication(opt =>
+        {
+            opt.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+            opt.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            opt.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+        })
+    .AddJwtBearer(opt =>
     {
         opt.TokenValidationParameters = new TokenValidationParameters
         {
@@ -71,9 +103,11 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             ValidAudience = builder.Configuration["Jwt:Audience"],
             ValidIssuer = builder.Configuration["Jwt:Issuer"],
             IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"])),
-            LifetimeValidator = ( notBefore,  expires, securityToken,  validationParameters) => expires != null ? expires> DateTime.UtcNow : false
+            LifetimeValidator = ( notBefore,  expires, securityToken,  validationParameters) => expires != null ? expires> DateTime.UtcNow : false,
+            RoleClaimType = "http://schemas.microsoft.com/ws/2008/06/identity/claims/role"
         };
-    });    
+    });
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

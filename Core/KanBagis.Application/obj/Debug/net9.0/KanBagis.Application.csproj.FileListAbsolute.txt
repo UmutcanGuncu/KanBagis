@@ -8,6 +8,7 @@
 /Users/umutcanguncu/RiderProjects/KanBagis/Core/KanBagis.Application/obj/Debug/net9.0/KanBagis.Application.AssemblyInfoInputs.cache
 /Users/umutcanguncu/RiderProjects/KanBagis/Core/KanBagis.Application/obj/Debug/net9.0/KanBagis.Application.AssemblyInfo.cs
 /Users/umutcanguncu/RiderProjects/KanBagis/Core/KanBagis.Application/obj/Debug/net9.0/KanBagis.Application.csproj.CoreCompileInputs.cache
+/Users/umutcanguncu/RiderProjects/KanBagis/Core/KanBagis.Application/obj/Debug/net9.0/KanBagis.Application.sourcelink.json
 /Users/umutcanguncu/RiderProjects/KanBagis/Core/KanBagis.Application/obj/Debug/net9.0/KanBagis.31BE4058.Up2Date
 /Users/umutcanguncu/RiderProjects/KanBagis/Core/KanBagis.Application/obj/Debug/net9.0/KanBagis.Application.dll
 /Users/umutcanguncu/RiderProjects/KanBagis/Core/KanBagis.Application/obj/Debug/net9.0/refint/KanBagis.Application.dll

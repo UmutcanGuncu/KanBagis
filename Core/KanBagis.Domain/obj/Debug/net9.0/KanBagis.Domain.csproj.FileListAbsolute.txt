@@ -6,6 +6,7 @@
 /Users/umutcanguncu/RiderProjects/KanBagis/Core/KanBagis.Domain/obj/Debug/net9.0/KanBagis.Domain.AssemblyInfoInputs.cache
 /Users/umutcanguncu/RiderProjects/KanBagis/Core/KanBagis.Domain/obj/Debug/net9.0/KanBagis.Domain.AssemblyInfo.cs
 /Users/umutcanguncu/RiderProjects/KanBagis/Core/KanBagis.Domain/obj/Debug/net9.0/KanBagis.Domain.csproj.CoreCompileInputs.cache
+/Users/umutcanguncu/RiderProjects/KanBagis/Core/KanBagis.Domain/obj/Debug/net9.0/KanBagis.Domain.sourcelink.json
 /Users/umutcanguncu/RiderProjects/KanBagis/Core/KanBagis.Domain/obj/Debug/net9.0/KanBagis.Domain.dll
 /Users/umutcanguncu/RiderProjects/KanBagis/Core/KanBagis.Domain/obj/Debug/net9.0/refint/KanBagis.Domain.dll
 /Users/umutcanguncu/RiderProjects/KanBagis/Core/KanBagis.Domain/obj/Debug/net9.0/KanBagis.Domain.pdb

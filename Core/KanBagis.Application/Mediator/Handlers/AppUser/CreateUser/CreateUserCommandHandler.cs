@@ -1,3 +1,4 @@
+using KanBagis.Application.Abstactions.Services;
 using KanBagis.Application.Mediator.Commands.AppUser.CreateUser;
 using KanBagis.Application.Mediator.Results.AppUser.CreateUser;
 using MediatR;
@@ -8,10 +9,13 @@ namespace KanBagis.Application.Mediator.Handlers.AppUser.CreateUser;
 public class CreateUserCommandHandler : IRequestHandler<CreateUserCommandRequest, CreateUserCommandResponse>
 {
     private readonly UserManager<Domain.Entities.AppUser> _userManager;
-
-    public CreateUserCommandHandler(UserManager<Domain.Entities.AppUser> userManager)
+    private readonly IAuthService _authService;
+    private readonly IRoleService _roleService;
+    public CreateUserCommandHandler(UserManager<Domain.Entities.AppUser> userManager, IAuthService authService, IRoleService roleService)
     {
         _userManager = userManager;
+        _authService = authService;
+        _roleService = roleService;
     }
 
     public async Task<CreateUserCommandResponse> Handle(CreateUserCommandRequest request, CancellationToken cancellationToken)
@@ -33,6 +37,8 @@ public class CreateUserCommandHandler : IRequestHandler<CreateUserCommandRequest
         },request.Password);
         if (result.Succeeded)
         {
+            Domain.Entities.AppUser user = await _userManager.FindByEmailAsync(request.Email);
+            await _roleService.AssingRoleAsync(user, "User");
             return new CreateUserCommandResponse()
             {
                 Succeeded = true,
