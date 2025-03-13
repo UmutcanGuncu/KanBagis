@@ -87,13 +87,13 @@ public class BloodDonationService(KanBagisDbContext _context) : IBloodDonationSe
             CityDistrict = x.Hospital.City.Name + " " + x.Hospital.District.Name,
             DonationStatus = x.DonationStatus,
             CreateDate = x.CreatedDate
-        }).ToList();
+        }).OrderByDescending(x=>x.CreateDate).ToList();
         return resultDto;
     }
 
     public async Task<IEnumerable<GetUserIdBloodDonationResponseDTO>> GetByUserIdAsync(Guid userId)
     {
-        var values = await _context.BloodDonations.Where(x => x.CreatedUser.Id == userId)
+        var values = await _context.BloodDonations.Where(x => x.CreatedUser.Id == userId )
             .Include(x => x.Hospital)
             .ThenInclude(x => x.City)
             .Include(x => x.Hospital)
@@ -110,7 +110,43 @@ public class BloodDonationService(KanBagisDbContext _context) : IBloodDonationSe
             CityDistrict = x.Hospital.City.Name + " " + x.Hospital.District.Name,
             DonationStatus = x.DonationStatus,
             CreateDate = x.CreatedDate
-        }).ToList();
+        }).OrderByDescending(x=>x.CreateDate).ToList();
+        return resultDto;
+    }
+
+    public async Task<IEnumerable<GetFilteredBloodDonationResponseDTO>> GetFiltederAsync(string city = null, string district = null, string hospitalName = null)
+    {
+        var query = _context.BloodDonations.Include(x=>x.Hospital)
+            .ThenInclude(x=>x.City)
+            .Include(x=>x.Hospital)
+            .ThenInclude(x=>x.District).Where(x=>x.DonationStatus == DonationStatus.Onaylandı).AsQueryable();
+        if (!string.IsNullOrEmpty(city))
+        {
+            query = query.Where(x=>x.Hospital.City.Name.Equals(city));
+        }
+
+        if (!string.IsNullOrEmpty(district))
+        {
+            query = query.Where(x=>x.Hospital.District.Name.Equals(district));
+        }
+
+        if (!string.IsNullOrEmpty(hospitalName))
+        {
+            query = query.Where(x=>x.Hospital.Name.Contains(hospitalName));
+        }
+        var values = await query.ToListAsync();
+        var resultDto = values.Select(x => new GetFilteredBloodDonationResponseDTO()
+        {
+            NameSurname = x.Name + " " + x.Surname,
+            Phone = x.PhoneNumber,
+            BloodGroup = x.BloodGroup,
+            Age = x.Age,
+            Gender = x.Gender,
+            HospitalName = x.Hospital.Name,
+            CityDistrict = x.Hospital.City.Name + " " + x.Hospital.District.Name,
+            DonationStatus = x.DonationStatus,
+            CreateDate = x.CreatedDate
+        }).OrderByDescending(x=>x.CreateDate).ToList();
         return resultDto;
     }
 }

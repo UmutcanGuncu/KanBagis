@@ -63,7 +63,8 @@ builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(
     typeof(GetFilteredQueryHandler).Assembly,
     typeof(CreateCityCommandRequestHandler).Assembly,
     typeof(CreateDistrictCommandRequestHandler).Assembly,
-    typeof(GetAllBloodDonationQueryHandler).Assembly
+    typeof(GetAllBloodDonationQueryHandler).Assembly,
+    typeof(GetFilteredBloodDonationQueryHandler).Assembly
 ));
 
 builder.Services.AddScoped<ITokenHandler, TokenHandler>();

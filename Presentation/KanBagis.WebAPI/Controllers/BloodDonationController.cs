@@ -35,4 +35,12 @@ public class BloodDonationController(IMediator _mediator): ControllerBase
         var result = await _mediator.Send(new GetByUserIdBloodDonationQuery(id) );
         return Ok(result);
     }
+
+    [HttpGet("[action]")]
+    public async Task<IActionResult> GetFilteredBloodDonations([FromQuery] string city = null,
+        [FromQuery] string district = null, [FromQuery] string hospitalName = null)
+    {
+        var result = await _mediator.Send(new GetFilteredBloodDonationQuery(city, district, hospitalName));
+        return Ok(result);
+    }
 }
