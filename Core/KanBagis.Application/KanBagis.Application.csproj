@@ -9,7 +9,6 @@
     <ItemGroup>
       <Folder Include="Mediator\Commands\AppRole\" />
       <Folder Include="Mediator\Handlers\AppRole\" />
-      <Folder Include="Mediator\Queries\" />
       <Folder Include="Mediator\Results\AppRole\" />
     </ItemGroup>
 

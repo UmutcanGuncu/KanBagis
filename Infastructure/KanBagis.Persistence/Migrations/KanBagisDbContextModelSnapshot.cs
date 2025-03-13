@@ -213,22 +213,67 @@ namespace KanBagis.Persistence.Migrations
                     b.ToTable("BloodDonations");
                 });
 
+            modelBuilder.Entity("KanBagis.Domain.Entities.City", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("timestamp without time zone");
+
+                    b.Property<DateTime>("ModifiedDate")
+                        .HasColumnType("timestamp without time zone");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Cities");
+                });
+
+            modelBuilder.Entity("KanBagis.Domain.Entities.District", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid>("CityId")
+                        .HasColumnType("uuid");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("timestamp without time zone");
+
+                    b.Property<DateTime>("ModifiedDate")
+                        .HasColumnType("timestamp without time zone");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CityId");
+
+                    b.ToTable("Districts");
+                });
+
             modelBuilder.Entity("KanBagis.Domain.Entities.Hospital", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
-                    b.Property<string>("City")
-                        .IsRequired()
-                        .HasColumnType("text");
+                    b.Property<Guid>("CityId")
+                        .HasColumnType("uuid");
 
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("timestamp without time zone");
 
-                    b.Property<string>("District")
-                        .IsRequired()
-                        .HasColumnType("text");
+                    b.Property<Guid>("DistrictId")
+                        .HasColumnType("uuid");
 
                     b.Property<string>("Location")
                         .IsRequired()
@@ -242,6 +287,10 @@ namespace KanBagis.Persistence.Migrations
                         .HasColumnType("text");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("CityId");
+
+                    b.HasIndex("DistrictId");
 
                     b.ToTable("Hospitals");
                 });
@@ -368,6 +417,36 @@ namespace KanBagis.Persistence.Migrations
                     b.Navigation("Hospital");
                 });
 
+            modelBuilder.Entity("KanBagis.Domain.Entities.District", b =>
+                {
+                    b.HasOne("KanBagis.Domain.Entities.City", "City")
+                        .WithMany("Districts")
+                        .HasForeignKey("CityId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("City");
+                });
+
+            modelBuilder.Entity("KanBagis.Domain.Entities.Hospital", b =>
+                {
+                    b.HasOne("KanBagis.Domain.Entities.City", "City")
+                        .WithMany()
+                        .HasForeignKey("CityId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("KanBagis.Domain.Entities.District", "District")
+                        .WithMany()
+                        .HasForeignKey("DistrictId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("City");
+
+                    b.Navigation("District");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<System.Guid>", b =>
                 {
                     b.HasOne("KanBagis.Domain.Entities.AppRole", null)
@@ -422,6 +501,11 @@ namespace KanBagis.Persistence.Migrations
             modelBuilder.Entity("KanBagis.Domain.Entities.AppUser", b =>
                 {
                     b.Navigation("BloodDonations");
+                });
+
+            modelBuilder.Entity("KanBagis.Domain.Entities.City", b =>
+                {
+                    b.Navigation("Districts");
                 });
 
             modelBuilder.Entity("KanBagis.Domain.Entities.Hospital", b =>

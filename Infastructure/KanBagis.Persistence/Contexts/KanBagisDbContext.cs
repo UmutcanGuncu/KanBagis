@@ -11,6 +11,8 @@ public class KanBagisDbContext :IdentityDbContext<AppUser, AppRole, Guid>
     {
         
     }
+    public DbSet<City> Cities { get; set; }
+    public DbSet<District> Districts { get; set; }
     public DbSet<Hospital> Hospitals { get; set; }
     public DbSet<BloodDonation> BloodDonations { get; set; }
 }

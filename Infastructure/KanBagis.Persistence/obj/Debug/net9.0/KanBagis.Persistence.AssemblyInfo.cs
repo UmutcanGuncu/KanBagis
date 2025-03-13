@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("KanBagis.Persistence")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f74073670e47010461daae16ea448c21c10be4d2")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5ff039e5820a4fd6f453af32eb4ac49d0884d563")]
 [assembly: System.Reflection.AssemblyProductAttribute("KanBagis.Persistence")]
 [assembly: System.Reflection.AssemblyTitleAttribute("KanBagis.Persistence")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
