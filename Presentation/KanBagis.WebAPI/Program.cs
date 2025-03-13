@@ -6,9 +6,11 @@ using KanBagis.Application.Mediator.Handlers.AppUser.CreateUser;
 using KanBagis.Application.Mediator.Handlers.AppUser.LoginUser;
 using KanBagis.Application.Mediator.Handlers.AppUser.LogoutUser;
 using KanBagis.Application.Mediator.Handlers.AppUser.RefreshTokenLogin;
+using KanBagis.Application.Mediator.Handlers.BloodDonation;
 using KanBagis.Application.Mediator.Handlers.City;
 using KanBagis.Application.Mediator.Handlers.District;
 using KanBagis.Application.Mediator.Handlers.Hospital;
+using KanBagis.Application.Mediator.Queries.BloodDonation;
 using KanBagis.Domain.Entities;
 using KanBagis.Persistence.Contexts;
 using KanBagis.Persistence.Services;
@@ -60,7 +62,8 @@ builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(
     typeof(RefreshTokenCommandHandler).Assembly ,
     typeof(GetFilteredQueryHandler).Assembly,
     typeof(CreateCityCommandRequestHandler).Assembly,
-    typeof(CreateDistrictCommandRequestHandler).Assembly
+    typeof(CreateDistrictCommandRequestHandler).Assembly,
+    typeof(GetAllBloodDonationQueryHandler).Assembly
 ));
 
 builder.Services.AddScoped<ITokenHandler, TokenHandler>();
@@ -70,6 +73,7 @@ builder.Services.AddScoped<IRoleService, RoleService>();
 builder.Services.AddScoped<IHospitalService, HospitalService>();
 builder.Services.AddScoped<ICityService, CityService>();
 builder.Services.AddScoped<IDistrictService, DistrictService>();
+builder.Services.AddScoped<IBloodDonationService, BloodDonationService>();
 builder.Services.AddDbContext<KanBagisDbContext>(cfg =>
 {
     cfg.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"));
