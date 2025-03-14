@@ -6,6 +6,11 @@
 /Users/umutcanguncu/RiderProjects/KanBagis/Presentation/KanBagis.WebAPI/bin/Debug/net9.0/KanBagis.WebAPI.runtimeconfig.json
 /Users/umutcanguncu/RiderProjects/KanBagis/Presentation/KanBagis.WebAPI/bin/Debug/net9.0/KanBagis.WebAPI.dll
 /Users/umutcanguncu/RiderProjects/KanBagis/Presentation/KanBagis.WebAPI/bin/Debug/net9.0/KanBagis.WebAPI.pdb
+/Users/umutcanguncu/RiderProjects/KanBagis/Presentation/KanBagis.WebAPI/bin/Debug/net9.0/ClosedXML.dll
+/Users/umutcanguncu/RiderProjects/KanBagis/Presentation/KanBagis.WebAPI/bin/Debug/net9.0/ClosedXML.Parser.dll
+/Users/umutcanguncu/RiderProjects/KanBagis/Presentation/KanBagis.WebAPI/bin/Debug/net9.0/DocumentFormat.OpenXml.dll
+/Users/umutcanguncu/RiderProjects/KanBagis/Presentation/KanBagis.WebAPI/bin/Debug/net9.0/DocumentFormat.OpenXml.Framework.dll
+/Users/umutcanguncu/RiderProjects/KanBagis/Presentation/KanBagis.WebAPI/bin/Debug/net9.0/ExcelNumberFormat.dll
 /Users/umutcanguncu/RiderProjects/KanBagis/Presentation/KanBagis.WebAPI/bin/Debug/net9.0/Humanizer.dll
 /Users/umutcanguncu/RiderProjects/KanBagis/Presentation/KanBagis.WebAPI/bin/Debug/net9.0/MediatR.dll
 /Users/umutcanguncu/RiderProjects/KanBagis/Presentation/KanBagis.WebAPI/bin/Debug/net9.0/MediatR.Contracts.dll
@@ -36,6 +41,8 @@
 /Users/umutcanguncu/RiderProjects/KanBagis/Presentation/KanBagis.WebAPI/bin/Debug/net9.0/Mono.TextTemplating.dll
 /Users/umutcanguncu/RiderProjects/KanBagis/Presentation/KanBagis.WebAPI/bin/Debug/net9.0/Npgsql.dll
 /Users/umutcanguncu/RiderProjects/KanBagis/Presentation/KanBagis.WebAPI/bin/Debug/net9.0/Npgsql.EntityFrameworkCore.PostgreSQL.dll
+/Users/umutcanguncu/RiderProjects/KanBagis/Presentation/KanBagis.WebAPI/bin/Debug/net9.0/RBush.dll
+/Users/umutcanguncu/RiderProjects/KanBagis/Presentation/KanBagis.WebAPI/bin/Debug/net9.0/SixLabors.Fonts.dll
 /Users/umutcanguncu/RiderProjects/KanBagis/Presentation/KanBagis.WebAPI/bin/Debug/net9.0/Swashbuckle.AspNetCore.Swagger.dll
 /Users/umutcanguncu/RiderProjects/KanBagis/Presentation/KanBagis.WebAPI/bin/Debug/net9.0/Swashbuckle.AspNetCore.SwaggerGen.dll
 /Users/umutcanguncu/RiderProjects/KanBagis/Presentation/KanBagis.WebAPI/bin/Debug/net9.0/Swashbuckle.AspNetCore.SwaggerUI.dll
@@ -46,6 +53,7 @@
 /Users/umutcanguncu/RiderProjects/KanBagis/Presentation/KanBagis.WebAPI/bin/Debug/net9.0/System.Composition.Runtime.dll
 /Users/umutcanguncu/RiderProjects/KanBagis/Presentation/KanBagis.WebAPI/bin/Debug/net9.0/System.Composition.TypedParts.dll
 /Users/umutcanguncu/RiderProjects/KanBagis/Presentation/KanBagis.WebAPI/bin/Debug/net9.0/System.IdentityModel.Tokens.Jwt.dll
+/Users/umutcanguncu/RiderProjects/KanBagis/Presentation/KanBagis.WebAPI/bin/Debug/net9.0/System.IO.Packaging.dll
 /Users/umutcanguncu/RiderProjects/KanBagis/Presentation/KanBagis.WebAPI/bin/Debug/net9.0/cs/Microsoft.CodeAnalysis.resources.dll
 /Users/umutcanguncu/RiderProjects/KanBagis/Presentation/KanBagis.WebAPI/bin/Debug/net9.0/de/Microsoft.CodeAnalysis.resources.dll
 /Users/umutcanguncu/RiderProjects/KanBagis/Presentation/KanBagis.WebAPI/bin/Debug/net9.0/es/Microsoft.CodeAnalysis.resources.dll

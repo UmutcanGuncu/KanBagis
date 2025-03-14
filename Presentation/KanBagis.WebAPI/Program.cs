@@ -2,6 +2,7 @@
 using System.Text;
 using KanBagis.Application.Abstactions.Services;
 using KanBagis.Application.Abstactions.Token;
+using KanBagis.Application.Mediator.Commands.Hospital;
 using KanBagis.Application.Mediator.Handlers.AppUser.CreateUser;
 using KanBagis.Application.Mediator.Handlers.AppUser.LoginUser;
 using KanBagis.Application.Mediator.Handlers.AppUser.LogoutUser;
@@ -64,7 +65,9 @@ builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(
     typeof(CreateCityCommandRequestHandler).Assembly,
     typeof(CreateDistrictCommandRequestHandler).Assembly,
     typeof(GetAllBloodDonationQueryHandler).Assembly,
-    typeof(GetFilteredBloodDonationQueryHandler).Assembly
+    typeof(GetFilteredBloodDonationQueryHandler).Assembly,
+    typeof(CreateHospitalsCommandRequestHandler).Assembly,
+    typeof(CreateDistrictExcelCommandRequestHandler).Assembly
 ));
 
 builder.Services.AddScoped<ITokenHandler, TokenHandler>();

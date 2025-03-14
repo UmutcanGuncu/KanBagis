@@ -1,3 +1,5 @@
+using KanBagis.Domain.Entities;
+
 namespace KanBagis.Application.DTOs;
 
 public class AddDistrictDTO

@@ -16,4 +16,13 @@ public class DistrictController(IMediator _mediator) : ControllerBase
         await _mediator.Send(request);
         return Ok();
     }
+
+    [HttpPost("[action]")]
+    public async Task<IActionResult> AddDistrictsExcel(IFormFile file)
+    {
+        var result = await _mediator.Send(new CreateDistrictExcelCommandRequest(file));
+        if (result.Success)
+         return Ok(result);
+        return BadRequest(result);
+    }
 }

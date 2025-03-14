@@ -10,12 +10,13 @@ public class RoleService : IRoleService
     private readonly RoleManager<Domain.Entities.AppRole> _roleManager;
     private readonly UserManager<Domain.Entities.AppUser> _userManager;
 
-    public RoleService(UserManager<AppUser> userManager)
+    public RoleService(UserManager<AppUser> userManager, RoleManager<Domain.Entities.AppRole> roleManager)
     {
         _userManager = userManager;
+        _roleManager = roleManager;
     }
 
-    public async Task<bool> AssingRoleAsync(AppUser user, string roleName)
+    public async Task<bool> AssingRoleAsync(AppUser user, string roleName = "User")
     {
         if (user == null)
             return false;
@@ -23,6 +24,7 @@ public class RoleService : IRoleService
         if (!await _roleManager.RoleExistsAsync(roleName))
         {
             await _roleManager.CreateAsync(new AppRole { Name = roleName });
+            
         }
 
         var userRoles = await _userManager.GetRolesAsync(user);
@@ -44,5 +46,10 @@ public class RoleService : IRoleService
             return roleClaim;
         }
         return new List<Claim>();
+    }
+
+    public Task<bool> UpdateUserRolesAsync(AppUser user, IEnumerable<Claim> roles)
+    {
+        throw new NotImplementedException();
     }
 }

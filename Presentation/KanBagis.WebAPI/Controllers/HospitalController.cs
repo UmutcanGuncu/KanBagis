@@ -1,4 +1,5 @@
 using KanBagis.Application.DTOs;
+using KanBagis.Application.Mediator.Commands.Hospital;
 using KanBagis.Application.Mediator.Queries.Hospital;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
@@ -18,8 +19,14 @@ public class HospitalController(IMediator _mediator) :ControllerBase
     }
 
     [HttpPost("[action]")]
-    public async Task<IActionResult> AddHospital()
+    public async Task<IActionResult> AddHospital(IFormFile file)
     {
-        return Ok();
+        if (file == null)
+            return BadRequest();
+        
+        var result = await _mediator.Send(new CreateHospitalsCommandRequest(file));
+        if (result.Success)
+            return Ok(result);
+        return BadRequest(result);
     }
 }
