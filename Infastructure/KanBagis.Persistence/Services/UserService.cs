@@ -1,6 +1,9 @@
 using KanBagis.Application.Abstactions.Services;
+using KanBagis.Application.DTOs;
 using KanBagis.Domain.Entities;
+using KanBagis.Persistence.Contexts;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 
 namespace KanBagis.Persistence.Services;
 
@@ -12,4 +15,6 @@ public class UserService(UserManager<AppUser> _userManager) : IUserService
         user.RefreshTokenExpiry = accessTokenExpiration.AddDays(refreshTokenExpiration);
         await _userManager.UpdateAsync(user);
     }
+
+    
 }
