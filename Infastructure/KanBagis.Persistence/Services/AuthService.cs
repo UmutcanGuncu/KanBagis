@@ -47,6 +47,7 @@ public class AuthService : IAuthService
             {
                 Succeeded = true,
                 Message = "Başarıyla Giriş Yapılmıştır",
+                UserId = user.Id.ToString(),
                 Token = token
             };
         }

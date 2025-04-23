@@ -4,5 +4,6 @@ public class LoginDTO
 {
     public bool Succeeded { get; set; }
     public string Message { get; set; }
+    public string UserId { get; set; }
     public DTOs.Token Token { get; set; }
 }

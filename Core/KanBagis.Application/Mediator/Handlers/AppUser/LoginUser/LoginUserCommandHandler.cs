@@ -22,6 +22,7 @@ public class LoginUserCommandHandler : IRequestHandler<LoginUserCommandRequest, 
        {
            Succeeded = result.Succeeded,
            Message = result.Message,
+           UserId = result.UserId,
            Token = result.Token
        };
     }
