@@ -1,7 +1,8 @@
 namespace KanBagis.Application.DTOs;
 
-public class UserDto
+public class UpdateUserInformationDTO
 {
+    public string UserId { get; set; }
     public string FirstName { get; set; }
     public string LastName { get; set; }
     public string BloodGroup { get; set; }
@@ -10,5 +11,7 @@ public class UserDto
     public string City { get; set; } // İl
     public string District { get; set; } // İlçe
     public string Email { get; set; }
-    public string Phone { get; set; }
+    public string PhoneNumber { get; set; }
+    public string OldPassword { get; set; }
+    public string? NewPassword { get; set; }
 }

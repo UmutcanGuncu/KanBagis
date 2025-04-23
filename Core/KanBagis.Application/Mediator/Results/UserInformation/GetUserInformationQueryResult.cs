@@ -1,6 +1,6 @@
-namespace KanBagis.Application.DTOs;
+namespace KanBagis.Application.Mediator.Results.UserInformation;
 
-public class UserDto
+public class GetUserInformationQueryResult
 {
     public string FirstName { get; set; }
     public string LastName { get; set; }

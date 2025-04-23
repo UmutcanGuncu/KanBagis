@@ -80,5 +80,18 @@ public class AuthService : IAuthService
             Token = null
         };
     }
-    
+
+    public async Task<bool> UpdatePassword(string oldPassword, string newPassword, string userId)
+    {
+        var id = Guid.Parse(userId);
+        var currentUser = await _userManager.Users.FirstOrDefaultAsync(x=>x.Id==id);
+        if (currentUser == null)
+            return false;
+        IdentityResult result = await _userManager.ChangePasswordAsync(currentUser,oldPassword,newPassword);
+        if (result.Succeeded)
+        {
+            return true;
+        }
+        return false;
+    }
 }
