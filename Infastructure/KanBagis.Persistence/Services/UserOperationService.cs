@@ -44,14 +44,9 @@ public class UserOperationService(KanBagisDbContext _context, UserManager<AppUse
         var result = await _userManager.CheckPasswordAsync(value, updateUserInformationDTO.OldPassword);
         if (result)
         {
-            value.FirstName = updateUserInformationDTO.FirstName;
-            value.LastName = updateUserInformationDTO.LastName;
             value.Email = updateUserInformationDTO.Email;
             value.City = updateUserInformationDTO.City;
             value.District = updateUserInformationDTO.District;
-            value.Gender = updateUserInformationDTO.Gender;
-            value.Age = updateUserInformationDTO.Age;
-            value.BloodGroup = updateUserInformationDTO.BloodGroup;
             value.PhoneNumber = updateUserInformationDTO.PhoneNumber;
             _context.Users.Update(value);
             await _context.SaveChangesAsync();

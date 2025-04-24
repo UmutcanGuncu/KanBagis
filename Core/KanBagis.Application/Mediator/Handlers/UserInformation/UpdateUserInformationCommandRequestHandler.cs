@@ -12,14 +12,9 @@ public class UpdateUserInformationCommandRequestHandler(IUserOperationService _o
         var value = await _operationService.UpdateUserInformation(new()
         {
             UserId = request.UserId,
-            Age = request.Age,
             Email = request.Email,
-            BloodGroup = request.BloodGroup,
             City = request.City,
             District = request.District,
-            FirstName = request.FirstName,
-            Gender = request.Gender,
-            LastName = request.LastName,
             NewPassword = request.NewPassword,
             OldPassword = request.OldPassword,
             PhoneNumber = request.PhoneNumber,
