@@ -149,4 +149,25 @@ public class BloodDonationService(KanBagisDbContext _context) : IBloodDonationSe
         }).OrderByDescending(x=>x.CreateDate).ToList();
         return resultDto;
     }
+
+    public async Task<bool> ChangeBloodDonationStatusAdminAsync(Guid bloodDonationId,  bool status)
+    {
+        var result = await _context.BloodDonations.Where(x=> x.Id == bloodDonationId).FirstOrDefaultAsync();
+        if (result != null)
+        {
+            if (status)
+            {
+                result.DonationStatus = DonationStatus.Onaylandı;
+                result.ModifiedDate = DateTime.UtcNow;
+                await _context.SaveChangesAsync();
+                return true;
+            }
+            result.DonationStatus = DonationStatus.Onaylanmadı;
+            result.ModifiedDate = DateTime.UtcNow;
+            await _context.SaveChangesAsync();
+            return true;
+        }
+        return false;
+       
+    }
 }

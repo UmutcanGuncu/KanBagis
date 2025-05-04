@@ -10,4 +10,5 @@ public interface IBloodDonationService
     public Task<IEnumerable<GetAllBloodDonationResponseDTO>> GetAllAsync();
     public Task<IEnumerable<GetUserIdBloodDonationResponseDTO>> GetByUserIdAsync(Guid userId);
     public Task<IEnumerable<GetFilteredBloodDonationResponseDTO>> GetFiltederAsync(string city = null, string district= null, string hospitalName = null);
+    public Task<bool> ChangeBloodDonationStatusAdminAsync(Guid bloodDonationId, bool status);
 }
