@@ -9,7 +9,7 @@ public class GetUserInformationQueryHandler(IUserOperationService _operationServ
 {
     public async Task<GetUserInformationQueryResult> Handle(GetUserInformationQuery request, CancellationToken cancellationToken)
     {
-       var result = await _operationService.GetUserInformation(request.UserId);
+       var result = await _operationService.GetUserInformationAsync(request.UserId);
        return new()
        {
            Age = result.Age,

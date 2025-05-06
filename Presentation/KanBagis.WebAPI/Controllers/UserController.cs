@@ -18,6 +18,13 @@ public class UserController(IMediator mediator) : ControllerBase
         return Ok(result);
     }
 
+    [HttpGet("[action]")]
+    public async Task<IActionResult> GetUserInformationByEmail(string email)
+    {
+        var result = await mediator.Send(new GetUserInformationByEmailQuery(){Email = email});
+        return Ok(result);
+    }
+
     [HttpPost("[action]")]
     public async Task<IActionResult> UpdateUserInformation(UpdateUserInformationCommandRequest updateUserInformationCommandRequest)
     {

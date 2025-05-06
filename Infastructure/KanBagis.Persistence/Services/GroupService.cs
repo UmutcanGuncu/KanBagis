@@ -63,12 +63,17 @@ public class GroupService(KanBagisDbContext _context) : IGroupService
                 Success = false,
                 Message = "Grup oluşturacak kullanıcı bulunamadı"
             };
+        var groupId = Guid.NewGuid();
         await _context.Groups.AddAsync(new Group()
         {
+            Id = groupId,
             Name = createGroupDto.Name,
             SupervisorId = user.Id,
             CreatedDate = DateTime.Now
         });
+        await _context.SaveChangesAsync();
+        var group = await _context.Groups.FirstOrDefaultAsync(g => g.Id == groupId);
+        user.Groups.Add(group);
         await _context.SaveChangesAsync();
         return new CreateGroupResultDto()
         {
@@ -96,12 +101,13 @@ public class GroupService(KanBagisDbContext _context) : IGroupService
         };
     }
 
-    public async Task<IEnumerable<GetGroupBySupervisorIdResultDto>> GetGroupBySupervisorId(Guid supervisorId)
+    public async Task<IEnumerable<GetGroupBySupervisorIdResultDto>> GetGroupBySupervisorIdAsync(Guid supervisorId)
     {
         var groups = await _context.Groups.Where(g => g.SupervisorId == supervisorId).ToListAsync();
         var result = groups.Select(g => new GetGroupBySupervisorIdResultDto()
         {
             Id = g.Id,
+            SupervisorId = g.SupervisorId,
             Name = g.Name
         });
         return result;

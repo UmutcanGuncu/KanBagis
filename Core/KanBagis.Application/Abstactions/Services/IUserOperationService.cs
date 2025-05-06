@@ -4,7 +4,7 @@ namespace KanBagis.Application.Abstactions.Services;
 
 public interface IUserOperationService
 {
-    Task<UserDto> GetUserInformation(string userId);
-    Task<UpdateUserInformationResultDTO> UpdateUserInformation(UpdateUserInformationDTO updateUserInformationDTO);
-    Task<UserByEmailDto> GetUserInformationByEmail(string email);
+    Task<UserDto> GetUserInformationAsync(string userId);
+    Task<UpdateUserInformationResultDTO> UpdateUserInformationAsync(UpdateUserInformationDTO updateUserInformationDTO);
+    Task<UserByEmailDto> GetUserInformationByEmailAsync(string email);
 }

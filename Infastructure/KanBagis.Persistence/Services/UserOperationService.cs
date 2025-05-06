@@ -9,7 +9,7 @@ namespace KanBagis.Persistence.Services;
 
 public class UserOperationService(KanBagisDbContext _context, UserManager<AppUser> _userManager, IAuthService _authService) : IUserOperationService
 {
-    public async Task<UserDto> GetUserInformation(string userId)
+    public async Task<UserDto> GetUserInformationAsync(string userId)
     {
         Guid id = Guid.Parse(userId);
         var value = await _context.Users.FirstOrDefaultAsync(x=> x.Id == id);
@@ -30,7 +30,7 @@ public class UserOperationService(KanBagisDbContext _context, UserManager<AppUse
         return userDto;
     }
 
-    public async Task<UpdateUserInformationResultDTO> UpdateUserInformation(UpdateUserInformationDTO updateUserInformationDTO)
+    public async Task<UpdateUserInformationResultDTO> UpdateUserInformationAsync(UpdateUserInformationDTO updateUserInformationDTO)
     {
         Guid id = Guid.Parse(updateUserInformationDTO.UserId);
         var value = await _context.Users.FirstOrDefaultAsync(x=> x.Id == id);
@@ -86,7 +86,7 @@ public class UserOperationService(KanBagisDbContext _context, UserManager<AppUse
         };
     }
 
-    public async Task<UserByEmailDto> GetUserInformationByEmail(string email)
+    public async Task<UserByEmailDto> GetUserInformationByEmailAsync(string email)
     {
         var value = await _context.Users.FirstOrDefaultAsync(x=> x.Email == email);
         if (value == null)

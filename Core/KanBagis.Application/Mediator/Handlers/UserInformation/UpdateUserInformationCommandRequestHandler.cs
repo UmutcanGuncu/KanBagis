@@ -9,7 +9,7 @@ public class UpdateUserInformationCommandRequestHandler(IUserOperationService _o
 {
     public async Task<UpdateUserInformationCommandResponse> Handle(UpdateUserInformationCommandRequest request, CancellationToken cancellationToken)
     {
-        var value = await _operationService.UpdateUserInformation(new()
+        var value = await _operationService.UpdateUserInformationAsync(new()
         {
             UserId = request.UserId,
             Email = request.Email,
