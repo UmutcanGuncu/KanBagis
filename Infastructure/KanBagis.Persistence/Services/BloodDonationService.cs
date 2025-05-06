@@ -1,6 +1,7 @@
 using KanBagis.Application.Abstactions.Services;
 using KanBagis.Application.DTOs;
 using KanBagis.Application.DTOs.BloodDonation.Response;
+using KanBagis.Application.Settings;
 using KanBagis.Domain.Enums;
 using KanBagis.Persistence.Contexts;
 using Microsoft.EntityFrameworkCore;
@@ -11,6 +12,7 @@ public class BloodDonationService(KanBagisDbContext _context) : IBloodDonationSe
 {
     public async Task<AddBloodDonationDTO> CreateAsync(BloodDonationDTO bloodDonationDto)
     {
+        Guid bloodDonationId = Guid.NewGuid();
         if (bloodDonationDto.CurrentUser == true)
         {
             var currentUser = await _context.Users.FindAsync(bloodDonationDto.AppUserId);
@@ -20,8 +22,10 @@ public class BloodDonationService(KanBagisDbContext _context) : IBloodDonationSe
                     Success = false,
                     Message = "İlgili Kullanıcı Bulunamadı"
                 };
+            
             await _context.BloodDonations.AddAsync(new()
             {
+                Id = bloodDonationId,
                 Name = currentUser.FirstName,
                 Surname = currentUser.LastName,
                 Email = currentUser.Email,
@@ -39,12 +43,14 @@ public class BloodDonationService(KanBagisDbContext _context) : IBloodDonationSe
             return new()
             {
                 Success = true,
-                Message = "Bağış Talebiniz Başarıyla Kaydedildi"
+                Message = "Bağış Talebiniz Başarıyla Kaydedildi",
+                BloodDonationId = bloodDonationId
             };
         }
 
         var result = await _context.BloodDonations.AddAsync(new()
         {
+            Id = bloodDonationId,
             Name = bloodDonationDto.Name,
             Surname = bloodDonationDto.Surname,
             Email = bloodDonationDto.Email,
@@ -62,7 +68,8 @@ public class BloodDonationService(KanBagisDbContext _context) : IBloodDonationSe
             return new()
             {
                 Success = true,
-                Message = "Bağış Talebiniz Başarıyla Kaydedildi"
+                Message = "Bağış Talebiniz Başarıyla Kaydedildi",
+                BloodDonationId = bloodDonationId
             };
         
         
@@ -75,6 +82,9 @@ public class BloodDonationService(KanBagisDbContext _context) : IBloodDonationSe
             .ThenInclude(x=>x.City)
             .Include(x=>x.Hospital)
             .ThenInclude(x=>x.District)
+            .Include(x=>x.Groups)
+            .Where(x=>x.DonationStatus == DonationStatus.Onaylandı)
+            .Where(x=>x.Groups.Any(g=>g.Id == AppGuids.PublicGroupId))
             .ToListAsync();
         var resultDto = values.Select(x => new GetAllBloodDonationResponseDTO()
         {

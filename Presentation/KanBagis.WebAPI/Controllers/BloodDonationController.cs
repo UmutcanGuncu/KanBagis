@@ -24,7 +24,7 @@ public class BloodDonationController(IMediator _mediator): ControllerBase
 
     [Authorize(Roles = "Admin,User")]
     [HttpGet("[action]")]
-    public async Task<IActionResult> GetAllBloodDonations()
+    public async Task<IActionResult> GetPublicAllBloodDonations()
     {
         var result = await _mediator.Send(new GetAllBloodDonationQuery());
         return Ok(result);
@@ -39,7 +39,7 @@ public class BloodDonationController(IMediator _mediator): ControllerBase
     }
     [Authorize(Roles = "Admin,User")]
     [HttpGet("[action]")]
-    public async Task<IActionResult> GetFilteredBloodDonations([FromQuery] string city = null,
+    public async Task<IActionResult> GetPublicFilteredBloodDonations([FromQuery] string city = null,
         [FromQuery] string district = null, [FromQuery] string hospitalName = null)
     {
         var result = await _mediator.Send(new GetFilteredBloodDonationQuery(city, district, hospitalName));

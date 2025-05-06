@@ -1,6 +1,7 @@
 using KanBagis.Application.Abstactions.Services;
 using KanBagis.Application.Mediator.Commands.AppUser.CreateUser;
 using KanBagis.Application.Mediator.Results.AppUser.CreateUser;
+using KanBagis.Application.Settings;
 using KanBagis.Domain.Entities;
 using MediatR;
 using Microsoft.AspNetCore.Identity;
@@ -42,7 +43,7 @@ public class CreateUserCommandHandler : IRequestHandler<CreateUserCommandRequest
         {
             Domain.Entities.AppUser user = await _userManager.FindByEmailAsync(request.Email);
             await _roleService.AssingRoleAsync(user, "User");
-            Guid publicGroupId = Guid.Parse("01021fcf-ac13-4437-9996-205c3708f34e"); // groupId yi environmenttan al. Değişirse patlama
+            Guid publicGroupId = AppGuids.PublicGroupId;
             await _groupService.AddUserToGroupAsync(publicGroupId, user.Id);
             return new CreateUserCommandResponse()
             {

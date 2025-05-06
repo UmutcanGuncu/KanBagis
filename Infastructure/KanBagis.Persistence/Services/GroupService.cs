@@ -1,6 +1,7 @@
 using DocumentFormat.OpenXml.Office2010.Excel;
 using KanBagis.Application.Abstactions.Services;
 using KanBagis.Application.DTOs;
+using KanBagis.Application.Settings;
 using KanBagis.Domain.Entities;
 using KanBagis.Persistence.Contexts;
 using Microsoft.EntityFrameworkCore;
@@ -86,6 +87,25 @@ public class GroupService(KanBagisDbContext _context) : IGroupService
     {
         var bloodDonation = await _context.BloodDonations.Include(g => g.Groups).FirstOrDefaultAsync(x=> x.Id == bloodDonationId);
         var group = await _context.Groups.FirstOrDefaultAsync(g => g.Id == groupId);
+        if (bloodDonation == null || group == null)
+            return new AddBloodDonationToGroupResultDto()
+            {
+                Success = false,
+                Message = "Kan bağışı veya grup adı bulunamadı"
+            };
+        bloodDonation.Groups.Add(group);
+        await _context.SaveChangesAsync();
+        return new AddBloodDonationToGroupResultDto()
+        {
+            Success = true,
+            Message = "İşlem Başarıyla Tamamlandı"
+        };
+    }
+    // public gruba dahil etmek için kullanılır
+    public async Task<AddBloodDonationToGroupResultDto> AddBloodDonationToGroupAsync(Guid bloodDonationId)
+    {
+        var bloodDonation = await _context.BloodDonations.Include(g => g.Groups).FirstOrDefaultAsync(x=> x.Id == bloodDonationId);
+        var group = await _context.Groups.FirstOrDefaultAsync(g => g.Id == AppGuids.PublicGroupId);
         if (bloodDonation == null || group == null)
             return new AddBloodDonationToGroupResultDto()
             {

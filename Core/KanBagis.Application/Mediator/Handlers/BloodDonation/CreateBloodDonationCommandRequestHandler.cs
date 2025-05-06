@@ -28,6 +28,7 @@ public class CreateBloodDonationCommandRequestHandler(IBloodDonationService _blo
         {
             Success = result.Success,
             Message = result.Message,
+            BloodDonationId = result.BloodDonationId
         };
     }
 }
