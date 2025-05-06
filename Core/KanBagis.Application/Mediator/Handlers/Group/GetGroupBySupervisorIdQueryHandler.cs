@@ -9,7 +9,7 @@ public class GetGroupBySupervisorIdQueryHandler(IGroupService _service): IReques
 {
     public async Task<IEnumerable<GetGroupBySupervisorIdResult>> Handle(GetGroupBySupervisorIdQuery request, CancellationToken cancellationToken)
     {
-        var results = await _service.GetGroupBySupervisorIdAsync(request.SupervisorId);
+        var results = await _service.GetGroupsBySupervisorIdAsync(request.SupervisorId);
         return results.Select(x => new GetGroupBySupervisorIdResult()
         {
             GroupId = x.Id,

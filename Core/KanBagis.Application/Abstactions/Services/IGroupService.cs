@@ -9,5 +9,6 @@ public interface IGroupService
     public Task<CreateGroupResultDto> CreateGroupAsync(CreateGroupDto createGroupDto);
     public Task<AddBloodDonationToGroupResultDto>  AddBloodDonationToGroupAsync(Guid bloodDonationId, Guid groupId);
     public Task<AddBloodDonationToGroupResultDto>  AddBloodDonationToGroupAsync(Guid bloodDonationId);
-    public Task<IEnumerable<GetGroupBySupervisorIdResultDto>> GetGroupBySupervisorIdAsync(Guid supervisorId);
+    public Task<IEnumerable<GetGroupBySupervisorIdResultDto>> GetGroupsBySupervisorIdAsync(Guid supervisorId);
+    public Task<IEnumerable<GetGroupByUserIdResultDto>> GetGroupsByUserIdAsync(Guid userId);
 }

@@ -45,4 +45,11 @@ public class GroupController(IMediator _mediator) : ControllerBase
         var results = await _mediator.Send(request);
         return Ok(results);
     }
+
+    [HttpPost("[action]")]
+    public async Task<IActionResult> GetGroupByUserId(GetGroupsByUserIdQuery request)
+    {
+        var results = await _mediator.Send(request);
+        return Ok(results);
+    }
 }

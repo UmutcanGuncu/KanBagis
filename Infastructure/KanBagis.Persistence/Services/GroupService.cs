@@ -121,7 +121,7 @@ public class GroupService(KanBagisDbContext _context) : IGroupService
         };
     }
 
-    public async Task<IEnumerable<GetGroupBySupervisorIdResultDto>> GetGroupBySupervisorIdAsync(Guid supervisorId)
+    public async Task<IEnumerable<GetGroupBySupervisorIdResultDto>> GetGroupsBySupervisorIdAsync(Guid supervisorId)
     {
         var groups = await _context.Groups.Where(g => g.SupervisorId == supervisorId).ToListAsync();
         var result = groups.Select(g => new GetGroupBySupervisorIdResultDto()
@@ -131,5 +131,16 @@ public class GroupService(KanBagisDbContext _context) : IGroupService
             Name = g.Name
         });
         return result;
+    }
+
+    public async Task<IEnumerable<GetGroupByUserIdResultDto>> GetGroupsByUserIdAsync(Guid userId)
+    {
+        var groups = await _context.Groups.Include(x=> x.Users).Where(x=>x.Users.Any(u=>u.Id == userId)).ToListAsync();
+        return groups.Select(g => new GetGroupByUserIdResultDto()
+        {
+            Id = g.Id,
+            SupervisorId = g.SupervisorId,
+            Name = g.Name
+        });
     }
 }
