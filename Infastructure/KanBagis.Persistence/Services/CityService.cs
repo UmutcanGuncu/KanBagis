@@ -31,4 +31,26 @@ public class CityService(KanBagisDbContext _context) : ICityService
         };
 
     }
+
+    public async Task<GetCityWithDistrictResultDTO> GetCityWithDistrictAsync(string cityName)
+    {
+        var city = await _context.Cities.Include(x=>x.Districts).Where(x => x.Name.Equals(cityName)).FirstOrDefaultAsync();
+        if (city != null)
+        {
+            var districts = await _context.Districts.Where(x=> x.CityId.Equals(city.Id)).ToListAsync();
+            IEnumerable<DistrictDto> districtDtos = districts.Select(d => new DistrictDto
+            {
+                DistrictId = d.Id,
+                Name = d.Name,
+            });
+            return new()
+            {
+                CityId = city.Id,
+                CityName = city.Name,
+                Districts = districtDtos,
+            };
+        }
+
+        return new();
+    }
 }

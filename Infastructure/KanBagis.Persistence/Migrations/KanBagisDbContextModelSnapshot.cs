@@ -22,6 +22,36 @@ namespace KanBagis.Persistence.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
+            modelBuilder.Entity("AppUserGroup", b =>
+                {
+                    b.Property<Guid>("GroupsId")
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid>("UsersId")
+                        .HasColumnType("uuid");
+
+                    b.HasKey("GroupsId", "UsersId");
+
+                    b.HasIndex("UsersId");
+
+                    b.ToTable("AppUserGroup");
+                });
+
+            modelBuilder.Entity("BloodDonationGroup", b =>
+                {
+                    b.Property<Guid>("BloodDonationsId")
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid>("GroupsId")
+                        .HasColumnType("uuid");
+
+                    b.HasKey("BloodDonationsId", "GroupsId");
+
+                    b.HasIndex("GroupsId");
+
+                    b.ToTable("BloodDonationGroup");
+                });
+
             modelBuilder.Entity("KanBagis.Domain.Entities.AppRole", b =>
                 {
                     b.Property<Guid>("Id")
@@ -260,6 +290,40 @@ namespace KanBagis.Persistence.Migrations
                     b.ToTable("Districts");
                 });
 
+            modelBuilder.Entity("KanBagis.Domain.Entities.Group", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("timestamp without time zone");
+
+                    b.Property<DateTime>("ModifiedDate")
+                        .HasColumnType("timestamp without time zone");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<Guid>("SupervisorId")
+                        .HasColumnType("uuid");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Groups");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("01021fcf-ac13-4437-9996-205c3708f34e"),
+                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ModifiedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "Public",
+                            SupervisorId = new Guid("00000000-0000-0000-0000-000000000000")
+                        });
+                });
+
             modelBuilder.Entity("KanBagis.Domain.Entities.Hospital", b =>
                 {
                     b.Property<Guid>("Id")
@@ -396,6 +460,36 @@ namespace KanBagis.Persistence.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens", (string)null);
+                });
+
+            modelBuilder.Entity("AppUserGroup", b =>
+                {
+                    b.HasOne("KanBagis.Domain.Entities.Group", null)
+                        .WithMany()
+                        .HasForeignKey("GroupsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("KanBagis.Domain.Entities.AppUser", null)
+                        .WithMany()
+                        .HasForeignKey("UsersId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("BloodDonationGroup", b =>
+                {
+                    b.HasOne("KanBagis.Domain.Entities.BloodDonation", null)
+                        .WithMany()
+                        .HasForeignKey("BloodDonationsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("KanBagis.Domain.Entities.Group", null)
+                        .WithMany()
+                        .HasForeignKey("GroupsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("KanBagis.Domain.Entities.BloodDonation", b =>

@@ -1,6 +1,7 @@
 using KanBagis.Application.Abstactions.Services;
 using KanBagis.Application.Mediator.Commands.AppUser.CreateUser;
 using KanBagis.Application.Mediator.Results.AppUser.CreateUser;
+using KanBagis.Domain.Entities;
 using MediatR;
 using Microsoft.AspNetCore.Identity;
 
@@ -11,11 +12,13 @@ public class CreateUserCommandHandler : IRequestHandler<CreateUserCommandRequest
     private readonly UserManager<Domain.Entities.AppUser> _userManager;
     private readonly IAuthService _authService;
     private readonly IRoleService _roleService;
-    public CreateUserCommandHandler(UserManager<Domain.Entities.AppUser> userManager, IAuthService authService, IRoleService roleService)
+    private readonly IGroupService _groupService;
+    public CreateUserCommandHandler(UserManager<Domain.Entities.AppUser> userManager, IAuthService authService, IRoleService roleService,  IGroupService groupService)
     {
         _userManager = userManager;
         _authService = authService;
         _roleService = roleService;
+        _groupService = groupService;
     }
 
     public async Task<CreateUserCommandResponse> Handle(CreateUserCommandRequest request, CancellationToken cancellationToken)
@@ -39,6 +42,8 @@ public class CreateUserCommandHandler : IRequestHandler<CreateUserCommandRequest
         {
             Domain.Entities.AppUser user = await _userManager.FindByEmailAsync(request.Email);
             await _roleService.AssingRoleAsync(user, "User");
+            Guid publicGroupId = Guid.Parse("01021fcf-ac13-4437-9996-205c3708f34e"); // groupId yi environmenttan al. Değişirse patlama
+            await _groupService.AddUserToGroupAsync(publicGroupId, user.Id);
             return new CreateUserCommandResponse()
             {
                 Succeeded = true,

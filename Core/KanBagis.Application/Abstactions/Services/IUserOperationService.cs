@@ -6,4 +6,5 @@ public interface IUserOperationService
 {
     Task<UserDto> GetUserInformation(string userId);
     Task<UpdateUserInformationResultDTO> UpdateUserInformation(UpdateUserInformationDTO updateUserInformationDTO);
+    Task<UserByEmailDto> GetUserInformationByEmail(string email);
 }

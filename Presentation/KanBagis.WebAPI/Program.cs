@@ -79,6 +79,7 @@ builder.Services.AddScoped<ICityService, CityService>();
 builder.Services.AddScoped<IDistrictService, DistrictService>();
 builder.Services.AddScoped<IBloodDonationService, BloodDonationService>();
 builder.Services.AddScoped<IUserOperationService, UserOperationService>();
+builder.Services.AddScoped<IGroupService, GroupService>();
 builder.Services.AddDbContext<KanBagisDbContext>(cfg =>
 {
     cfg.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"));

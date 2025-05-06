@@ -6,4 +6,5 @@ namespace KanBagis.Application.Abstactions.Services;
 public interface ICityService
 {
     public Task<AddCityResultDTO> AddCityAsync(CityDTO cityDto);
+    public Task<GetCityWithDistrictResultDTO>  GetCityWithDistrictAsync(string cityName);
 }

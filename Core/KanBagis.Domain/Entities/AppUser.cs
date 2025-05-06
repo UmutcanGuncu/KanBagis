@@ -15,4 +15,6 @@ public class AppUser : IdentityUser<Guid>
     public string? RefreshToken { get; set; }
     public DateTime? RefreshTokenExpiry { get; set; }
     public ICollection<BloodDonation> BloodDonations { get; set; }
+    public ICollection<Group> Groups { get; set; }
+    
 }

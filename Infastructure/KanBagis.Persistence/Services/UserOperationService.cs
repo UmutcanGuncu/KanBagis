@@ -13,6 +13,8 @@ public class UserOperationService(KanBagisDbContext _context, UserManager<AppUse
     {
         Guid id = Guid.Parse(userId);
         var value = await _context.Users.FirstOrDefaultAsync(x=> x.Id == id);
+        if (value == null)
+            return new UserDto();
         var userDto = new UserDto()
         {
             FirstName = value.FirstName,
@@ -84,5 +86,22 @@ public class UserOperationService(KanBagisDbContext _context, UserManager<AppUse
         };
     }
 
-  
+    public async Task<UserByEmailDto> GetUserInformationByEmail(string email)
+    {
+        var value = await _context.Users.FirstOrDefaultAsync(x=> x.Email == email);
+        if (value == null)
+        {
+            return new();
+        }
+
+        return new()
+        {
+            Id = value.Id,
+            FirstName = value.FirstName,
+            LastName = value.LastName,
+            Email = value.Email,
+            City = value.City,
+            District = value.District
+        };
+    }
 }

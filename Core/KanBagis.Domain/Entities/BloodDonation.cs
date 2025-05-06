@@ -18,4 +18,5 @@ public class BloodDonation : BaseEntity
     public DonationStatus DonationStatus { get; set; }
     public Guid AppUserId { get; set; }
     public AppUser CreatedUser { get; set; }
+    public ICollection<Group> Groups { get; set; }
 }
