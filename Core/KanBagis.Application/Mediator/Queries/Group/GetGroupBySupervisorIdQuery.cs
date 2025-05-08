@@ -1,4 +1,4 @@
-using KanBagis.Application.Mediator.Results.Group;
+using KanBagis.Application.Mediator.Results.BloodDonations;
 using MediatR;
 
 namespace KanBagis.Application.Mediator.Queries.Group;

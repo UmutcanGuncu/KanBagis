@@ -1,7 +1,6 @@
-using KanBagis.Application.Abstactions.Services;
 using KanBagis.Application.Mediator.Commands.BloodDonation;
 using KanBagis.Application.Mediator.Queries.BloodDonation;
-using KanBagis.Domain.Entities;
+using KanBagis.Application.Mediator.Queries.Group;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -60,4 +59,16 @@ public class BloodDonationController(IMediator _mediator): ControllerBase
         }
         return BadRequest(result);
     }
+
+    [Authorize(Roles = "Admin,User")]
+    [HttpGet("[action]")]
+    public async Task<IActionResult> GetBloodDonationsByUserGroups([FromQuery] Guid userId)
+    {
+        var result = await _mediator.Send(new GetBloodDonationsByUserGroupsQuery()
+        {
+            UserId = userId
+        });
+        return Ok(result);
+    }
+    
 }

@@ -9,7 +9,7 @@ public class GetAllBloodDonationQueryHandler(IBloodDonationService _bloodDonatio
 {
     public async Task<IEnumerable<GetAllBloodDonationQueryResult>> Handle(GetAllBloodDonationQuery request, CancellationToken cancellationToken)
     {
-        var results = await  _bloodDonationService.GetAllAsync();
+        var results = await  _bloodDonationService.GetPublicAllAsync();
         var resultDto=  results.Select(x => new GetAllBloodDonationQueryResult()
         {
             NameSurname = x.NameSurname,
@@ -20,6 +20,7 @@ public class GetAllBloodDonationQueryHandler(IBloodDonationService _bloodDonatio
             CityDistrict = x.CityDistrict,
             HospitalName = x.HospitalName,
             DonationStatus = x.DonationStatus,
+            Description = x.Description,
             CreateDate = x.CreateDate
         }).ToList();
         return resultDto;

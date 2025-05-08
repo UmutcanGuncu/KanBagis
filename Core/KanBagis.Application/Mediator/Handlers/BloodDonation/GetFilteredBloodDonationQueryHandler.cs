@@ -9,7 +9,7 @@ public class GetFilteredBloodDonationQueryHandler(IBloodDonationService _bloodDo
 {
     public async Task<IEnumerable<GetFilteredBloodDonationQueryResult>> Handle(GetFilteredBloodDonationQuery request, CancellationToken cancellationToken)
     {
-        var values = await _bloodDonationService.GetFiltederAsync(request.City, request.District, request.HospitalName);
+        var values = await _bloodDonationService.GetPublicFilteredAsync(request.City, request.District, request.HospitalName);
         var resultDto = values.Select(x=> new GetFilteredBloodDonationQueryResult()
         {
             NameSurname = x.NameSurname,

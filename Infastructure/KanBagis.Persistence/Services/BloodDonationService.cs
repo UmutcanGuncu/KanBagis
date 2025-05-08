@@ -75,7 +75,7 @@ public class BloodDonationService(KanBagisDbContext _context) : IBloodDonationSe
         
     }
 
-    public async Task<IEnumerable<GetAllBloodDonationResponseDTO>> GetAllAsync()
+    public async Task<IEnumerable<GetAllBloodDonationResponseDTO>> GetPublicAllAsync()
     {
         var values = await _context.BloodDonations.
             Include(x=>x.Hospital)
@@ -96,6 +96,7 @@ public class BloodDonationService(KanBagisDbContext _context) : IBloodDonationSe
             HospitalName = x.Hospital.Name,
             CityDistrict = x.Hospital.City.Name + " " + x.Hospital.District.Name,
             DonationStatus = x.DonationStatus,
+            Description = x.Description,
             CreateDate = x.CreatedDate
         }).OrderByDescending(x=>x.CreateDate).ToList();
         return resultDto;
@@ -119,30 +120,32 @@ public class BloodDonationService(KanBagisDbContext _context) : IBloodDonationSe
             HospitalName = x.Hospital.Name,
             CityDistrict = x.Hospital.City.Name + " " + x.Hospital.District.Name,
             DonationStatus = x.DonationStatus,
+            Description = x.Description,
             CreateDate = x.CreatedDate
         }).OrderByDescending(x=>x.CreateDate).ToList();
         return resultDto;
     }
 
-    public async Task<IEnumerable<GetFilteredBloodDonationResponseDTO>> GetFiltederAsync(string city = null, string district = null, string hospitalName = null)
+    public async Task<IEnumerable<GetFilteredBloodDonationResponseDTO>> GetPublicFilteredAsync(string city = null, string district = null, string hospitalName = null)
     {
         var query = _context.BloodDonations.Include(x=>x.Hospital)
             .ThenInclude(x=>x.City)
             .Include(x=>x.Hospital)
-            .ThenInclude(x=>x.District).Where(x=>x.DonationStatus == DonationStatus.Onaylandı).AsQueryable();
+            .ThenInclude(x=>x.District).Where(x=>x.DonationStatus == DonationStatus.Onaylandı)
+            .Include(x=>x.Groups).AsQueryable();
         if (!string.IsNullOrEmpty(city))
         {
-            query = query.Where(x=>x.Hospital.City.Name.Equals(city));
+            query = query.Where(x=>x.Hospital.City.Name.Equals(city) && x.Groups.Any(g=>g.Id == AppGuids.PublicGroupId));
         }
 
         if (!string.IsNullOrEmpty(district))
         {
-            query = query.Where(x=>x.Hospital.District.Name.Equals(district));
+            query = query.Where(x=>x.Hospital.District.Name.Equals(district) && x.Groups.Any(g=>g.Id == AppGuids.PublicGroupId));
         }
 
         if (!string.IsNullOrEmpty(hospitalName))
         {
-            query = query.Where(x=>x.Hospital.Name.Contains(hospitalName));
+            query = query.Where(x=>x.Hospital.Name.Contains(hospitalName) && x.Groups.Any(g=>g.Id == AppGuids.PublicGroupId));
         }
         var values = await query.ToListAsync();
         var resultDto = values.Select(x => new GetFilteredBloodDonationResponseDTO()
@@ -155,6 +158,7 @@ public class BloodDonationService(KanBagisDbContext _context) : IBloodDonationSe
             HospitalName = x.Hospital.Name,
             CityDistrict = x.Hospital.City.Name + " " + x.Hospital.District.Name,
             DonationStatus = x.DonationStatus,
+            Description = x.Description,
             CreateDate = x.CreatedDate
         }).OrderByDescending(x=>x.CreateDate).ToList();
         return resultDto;
@@ -179,5 +183,30 @@ public class BloodDonationService(KanBagisDbContext _context) : IBloodDonationSe
         }
         return false;
        
+    }
+
+    public async Task<IEnumerable<GetBloodDonationsByUserGroupsResponseDto>> GetBloodDonationsByUserGroupsAsync(Guid userId)
+    {
+       var donations = await _context.Groups
+           .Where(g => g.Users.Any(u => u.Id == userId) && g.Id != AppGuids.PublicGroupId)
+           .SelectMany(g => g.BloodDonations)
+           .Include(b => b.Hospital)
+           .ThenInclude(h => h.City)
+           .ThenInclude(c => c.Districts)
+           .ToListAsync();
+       return donations.Select(x => new GetBloodDonationsByUserGroupsResponseDto()
+       {
+           NameSurname = x.Name + " " + x.Surname,
+           Phone = x.PhoneNumber,
+           BloodGroup = x.BloodGroup,
+           Age = x.Age,
+           Gender = x.Gender,
+           HospitalName = x.Hospital.Name,
+           CityDistrict = x.Hospital.City.Name,
+           DonationStatus = x.DonationStatus,
+           Description = x.Description,
+           CreateDate = x.CreatedDate
+       });
+
     }
 }

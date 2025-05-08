@@ -3,7 +3,7 @@ using MediatR;
 
 namespace KanBagis.Application.Mediator.Queries.Group;
 
-public class GetGroupsByUserIdQuery : IRequest<IEnumerable<GetGroupsByUserIdResult>>
+public class GetBloodDonationsByUserGroupsQuery : IRequest<IEnumerable<GetBloodDonationsByUserGroupsResult>>
 {
     public Guid UserId { get; set; }
 }

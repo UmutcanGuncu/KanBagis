@@ -1,4 +1,4 @@
-namespace KanBagis.Application.Mediator.Results.Group;
+namespace KanBagis.Application.Mediator.Results.BloodDonations;
 
 public class GetGroupBySupervisorIdResult
 {

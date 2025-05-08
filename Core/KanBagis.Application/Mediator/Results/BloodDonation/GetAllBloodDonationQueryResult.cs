@@ -11,6 +11,7 @@ public class GetAllBloodDonationQueryResult
     public string Gender { get; set; }
     public string CityDistrict { get; set; }
     public string HospitalName { get; set; }
+    public string Description { get; set; }
     public DonationStatus DonationStatus { get; set; }
     public DateTime CreateDate { get; set; }
 }

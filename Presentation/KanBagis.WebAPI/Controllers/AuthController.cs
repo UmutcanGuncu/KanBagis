@@ -1,3 +1,4 @@
+using KanBagis.Application.Abstactions.Services;
 using KanBagis.Application.Mediator.Commands.AppUser.CreateUser;
 using KanBagis.Application.Mediator.Commands.AppUser.LoginUser;
 using KanBagis.Application.Mediator.Commands.AppUser.LogoutUser;
@@ -13,13 +14,9 @@ namespace KanBagis.WebAPI.Controllers;
 [Route("api/[controller]")]
 [ApiController]
 
-public class AuthController : ControllerBase
+public class AuthController(IBloodDonationService _donationService, IMediator _mediator) : ControllerBase
 {
-    private readonly IMediator _mediator;
-    public AuthController(IMediator mediator)
-    {
-        _mediator = mediator;
-    }
+    
     [HttpPost("[action]")]
     [AllowAnonymous]
     public async Task<IActionResult> CreateUser(CreateUserCommandRequest request)
@@ -57,8 +54,9 @@ public class AuthController : ControllerBase
 
     [HttpPost("[action]")]
     [Authorize(Roles = "User")]
-    public IActionResult Deneme()
+    public async Task<IActionResult> Deneme()
     {
-        return Ok("Girdi");
+         
+        return Ok("Başarılı");
     }
 }

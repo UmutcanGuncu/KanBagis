@@ -1,6 +1,6 @@
 using KanBagis.Application.Abstactions.Services;
 using KanBagis.Application.Mediator.Queries.Group;
-using KanBagis.Application.Mediator.Results.Group;
+using KanBagis.Application.Mediator.Results.BloodDonations;
 using MediatR;
 
 namespace KanBagis.Application.Mediator.Handlers.Group;

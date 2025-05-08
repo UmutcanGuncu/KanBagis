@@ -1,8 +1,8 @@
 using KanBagis.Domain.Enums;
 
-namespace KanBagis.Application.DTOs.BloodDonation.Response;
+namespace KanBagis.Application.DTOs;
 
-public class GetUserIdBloodDonationResponseDTO
+public class GetBloodDonationsByUserGroupsResponseDto
 {
     public string NameSurname { get; set; }
     public string Phone { get; set; }
