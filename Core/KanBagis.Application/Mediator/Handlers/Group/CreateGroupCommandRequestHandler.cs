@@ -17,7 +17,8 @@ public class CreateGroupCommandRequestHandler(IGroupService _groupService) : IRe
         return new()
         {
             Success = result.Success,
-            Message = result.Message
+            Message = result.Message,
+            GroupId = result.GroupId
         };
     }
 }

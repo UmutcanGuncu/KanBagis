@@ -71,7 +71,7 @@ public class GroupService(KanBagisDbContext _context) : IGroupService
             Name = createGroupDto.Name,
             SupervisorId = user.Id,
             CreatedDate = DateTime.Now
-        });
+        }); 
         await _context.SaveChangesAsync();
         var group = await _context.Groups.FirstOrDefaultAsync(g => g.Id == groupId);
         user.Groups.Add(group);
@@ -79,7 +79,8 @@ public class GroupService(KanBagisDbContext _context) : IGroupService
         return new CreateGroupResultDto()
         {
             Success = true,
-            Message = "Grup Başarıyla Oluşturuldu"
+            Message = "Grup Başarıyla Oluşturuldu",
+            GroupId = groupId
         };
     }
 

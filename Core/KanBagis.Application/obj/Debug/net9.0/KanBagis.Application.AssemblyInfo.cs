@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("KanBagis.Application")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+11de573de34f39fce5ed5cb9d21476ad20f15c9b")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d68ca92d3cc84ecbe3ea0ca44f9ad66cd646ab1a")]
 [assembly: System.Reflection.AssemblyProductAttribute("KanBagis.Application")]
 [assembly: System.Reflection.AssemblyTitleAttribute("KanBagis.Application")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

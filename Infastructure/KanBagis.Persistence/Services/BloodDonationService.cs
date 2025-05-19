@@ -209,4 +209,9 @@ public class BloodDonationService(KanBagisDbContext _context) : IBloodDonationSe
        });
 
     }
+
+    public async Task<UpdateBloodDonationResultDto> UpdateBloodDonationAsync(UpdateBloodDonationDto bloodDonationDto)
+    {
+        throw new NotImplementedException();
+    }
 }
