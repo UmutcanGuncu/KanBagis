@@ -29,22 +29,23 @@ public class GroupService(KanBagisDbContext _context) : IGroupService
        };
     }
 
-    public async Task<AddUserToGroupResultDto> AddUserToGroupAsync(Guid groupId, Guid userId, Guid supervisorId)
+    public async Task<AddUserToGroupResultDto> AddUserToGroupAsync(Guid groupId, string email, Guid supervisorId)
     {
-        var user = await _context.Users.Include(u => u.Groups).FirstOrDefaultAsync(u => u.Id == userId);
-        var supervisor = await _context.Groups.FirstOrDefaultAsync(g => g.SupervisorId == supervisorId);
-        var group = await _context.Groups.FirstOrDefaultAsync(g => g.Id == groupId);
-        if (supervisor != group)
+        var user = await _context.Users.Include(u => u.Groups).FirstOrDefaultAsync(u => u.Email == email);
+        if (user == null)
+        {
+            return new AddUserToGroupResultDto()
+            {
+                Succeeded = false,
+                Message = "Kullanıcı Bilgisi Bulunamadı"
+            };
+        }
+        var group = await _context.Groups.FirstOrDefaultAsync(g => g.SupervisorId == supervisorId && g.Id == groupId);
+        if (group == null)
             return new AddUserToGroupResultDto()
             {
                 Succeeded = false,
                 Message = "Gruba Kullanıcı Ekleme Yetkiniz Bulunmamaktadır"
-            };
-        if (user == null || group == null)
-            return new AddUserToGroupResultDto()
-            {
-                Succeeded = false,
-                Message = "Kullanıcı veya Grup Bilgisi Bulunamadı"
             };
         user.Groups.Add(group);
         await _context.SaveChangesAsync();

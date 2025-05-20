@@ -10,11 +10,11 @@ public class AddUserToGroupCommandRequestHandler(IGroupService _service):IReques
 {
     public async Task<AddUserToGroupCommandResult> Handle(AddUserToGroupCommandRequest request, CancellationToken cancellationToken)
     {
-        var result = await _service.AddUserToGroupAsync(request.GroupId, request.UserId, request.SupervisorId);
+        var result = await _service.AddUserToGroupAsync(request.GroupId, request.Email, request.SupervisorId);
         return new()
         {
             Success = result.Succeeded,
-            Message = result.Message
+            Message = result.Message,
         };
     }
 }
