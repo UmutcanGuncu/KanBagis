@@ -16,4 +16,5 @@ public class CreateBloodDonationCommandRequest : IRequest<CreateBloodDonationCom
     public string Description { get; set; }
     public Guid HospitalId {get;set;}
     public Guid AppUserId {get;set;}
+    public Guid GroupId {get;set;}
 }

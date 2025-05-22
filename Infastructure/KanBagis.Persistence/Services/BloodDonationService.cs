@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace KanBagis.Persistence.Services;
 
-public class BloodDonationService(KanBagisDbContext _context) : IBloodDonationService
+public class BloodDonationService(KanBagisDbContext _context, IGroupService _groupService) : IBloodDonationService
 {
     public async Task<AddBloodDonationDTO> CreateAsync(BloodDonationDTO bloodDonationDto)
     {
@@ -40,6 +40,7 @@ public class BloodDonationService(KanBagisDbContext _context) : IBloodDonationSe
                 DonationStatus = DonationStatus.OnayBekliyor
             });
             await _context.SaveChangesAsync();
+            await _groupService.AddBloodDonationToGroupAsync(bloodDonationId, bloodDonationDto.GroupId);
             return new()
             {
                 Success = true,

@@ -9,8 +9,9 @@ public class CreateBloodDonationCommandRequestHandler(IBloodDonationService _blo
 {
     public async Task<CreateBloodDonationCommandResult> Handle(CreateBloodDonationCommandRequest request, CancellationToken cancellationToken)
     {
+        
         var result = await _bloodDonationService.CreateAsync(new()
-        {
+        { 
            CurrentUser = request.CurrentUser,
            Name = request.Name,
            Surname = request.Surname,
@@ -21,7 +22,8 @@ public class CreateBloodDonationCommandRequestHandler(IBloodDonationService _blo
            Gender = request.Gender,
            Description = request.Description,
            HospitalId = request.HospitalId,
-           AppUserId = request.AppUserId
+           AppUserId = request.AppUserId,
+           GroupId = request.GroupId
             
         });
         return new()
