@@ -37,7 +37,7 @@ public class BloodDonationService(KanBagisDbContext _context, IGroupService _gro
                 CreatedDate = DateTime.UtcNow,
                 HospitalId = bloodDonationDto.HospitalId,
                 Description = bloodDonationDto.Description,
-                DonationStatus = DonationStatus.OnayBekliyor
+                DonationStatus = DonationStatus.Onaylandı
             });
             await _context.SaveChangesAsync();
             await _groupService.AddBloodDonationToGroupAsync(bloodDonationId, bloodDonationDto.GroupId);

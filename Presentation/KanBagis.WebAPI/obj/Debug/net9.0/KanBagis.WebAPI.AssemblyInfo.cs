@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("KanBagis.WebAPI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f57b397bf25d933412c214c4b00c70349dcb287a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9b779af2f54bfa41e0056d3a8eb1a236adeb8cce")]
 [assembly: System.Reflection.AssemblyProductAttribute("KanBagis.WebAPI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("KanBagis.WebAPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
