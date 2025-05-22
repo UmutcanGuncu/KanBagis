@@ -21,7 +21,8 @@ public class GetBloodDonationsByUserGroupsQueryHandler(IBloodDonationService _do
             HospitalName = x.HospitalName,
             DonationStatus = x.DonationStatus,
             Description = x.Description,
-            CreateDate = x.CreateDate
+            CreateDate = x.CreateDate,
+            GroupName = x.GroupName
         });
     }
 }

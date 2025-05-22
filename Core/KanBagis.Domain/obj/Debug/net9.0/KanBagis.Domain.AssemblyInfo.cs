@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("KanBagis.Domain")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9b779af2f54bfa41e0056d3a8eb1a236adeb8cce")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+335a6e0512dce751ca13bf3870efcc1544b5434c")]
 [assembly: System.Reflection.AssemblyProductAttribute("KanBagis.Domain")]
 [assembly: System.Reflection.AssemblyTitleAttribute("KanBagis.Domain")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

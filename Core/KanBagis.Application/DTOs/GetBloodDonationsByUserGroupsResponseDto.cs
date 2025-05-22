@@ -12,6 +12,7 @@ public class GetBloodDonationsByUserGroupsResponseDto
     public string CityDistrict { get; set; }
     public string HospitalName { get; set; }
     public string Description { get; set; }
+    public string GroupName { get; set; }
     public DonationStatus DonationStatus { get; set; }
     public DateTime CreateDate { get; set; }
 }

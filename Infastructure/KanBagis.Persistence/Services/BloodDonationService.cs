@@ -40,7 +40,15 @@ public class BloodDonationService(KanBagisDbContext _context, IGroupService _gro
                 DonationStatus = DonationStatus.Onaylandı
             });
             await _context.SaveChangesAsync();
-            await _groupService.AddBloodDonationToGroupAsync(bloodDonationId, bloodDonationDto.GroupId);
+            var deneme = await _groupService.AddBloodDonationToGroupAsync(bloodDonationId, bloodDonationDto.GroupId);
+            if (!deneme.Success)
+            {
+                return new()
+                {
+                    Success = false,
+                    Message = "QAA"
+                };
+            }
             return new()
             {
                 Success = true,
@@ -66,7 +74,15 @@ public class BloodDonationService(KanBagisDbContext _context, IGroupService _gro
             DonationStatus = DonationStatus.OnayBekliyor
         });
         await _context.SaveChangesAsync();
+        await _context.SaveChangesAsync(); 
+        var deneme2 = await _groupService.AddBloodDonationToGroupAsync(bloodDonationId, bloodDonationDto.GroupId);
+        if (!deneme2.Success)
             return new()
+            {
+                Success = false,
+                Message = "QAA"
+            };
+        return new()
             {
                 Success = true,
                 Message = "Bağış Talebiniz Başarıyla Kaydedildi",
@@ -188,12 +204,13 @@ public class BloodDonationService(KanBagisDbContext _context, IGroupService _gro
 
     public async Task<IEnumerable<GetBloodDonationsByUserGroupsResponseDto>> GetBloodDonationsByUserGroupsAsync(Guid userId)
     {
-       var donations = await _context.Groups
-           .Where(g => g.Users.Any(u => u.Id == userId) && g.Id != AppGuids.PublicGroupId)
+       /*var donations = await _context.Groups
+           .Where(g => g.Users.Any(u => u.Id == userId))
            .SelectMany(g => g.BloodDonations)
            .Include(b => b.Hospital)
            .ThenInclude(h => h.City)
            .ThenInclude(c => c.Districts)
+           .Include(x=>x.Groups)
            .ToListAsync();
        return donations.Select(x => new GetBloodDonationsByUserGroupsResponseDto()
        {
@@ -206,8 +223,36 @@ public class BloodDonationService(KanBagisDbContext _context, IGroupService _gro
            CityDistrict = x.Hospital.City.Name,
            DonationStatus = x.DonationStatus,
            Description = x.Description,
-           CreateDate = x.CreatedDate
+           CreateDate = x.CreatedDate,
+       }); */
+       var donations = await _context.Groups
+           .Where(g => g.Users.Any(u => u.Id == userId))
+           .SelectMany(g => g.BloodDonations)
+           .Include(b => b.Hospital)
+           .ThenInclude(h => h.City)
+           .ThenInclude(c => c.Districts)
+           .Include(b => b.Groups)
+           .ThenInclude(g => g.Users)
+           .ToListAsync();
+
+       return donations.Select(x => new GetBloodDonationsByUserGroupsResponseDto()
+       {
+           NameSurname = x.Name + " " + x.Surname,
+           Phone = x.PhoneNumber,
+           BloodGroup = x.BloodGroup,
+           Age = x.Age,
+           Gender = x.Gender,
+           HospitalName = x.Hospital.Name,
+           CityDistrict = x.Hospital.City.Name,
+           DonationStatus = x.DonationStatus,
+           Description = x.Description,
+           CreateDate = x.CreatedDate,
+           GroupName = x.Groups
+               .FirstOrDefault(g => g.Users.Any(u => u.Id == userId))?.Name
        });
+
+       
+
 
     }
 
